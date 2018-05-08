@@ -1,0 +1,26 @@
+html {
+    font-family: "Microsoft YaHei", Helvetica, Arial, "Time New Roman", sans-serif;
+}
+body {
+    line-height: 1.5;
+}
+h1 {
+    margin-top: 3rem;
+}
+a:link {
+    text-decoration: none;
+    border-bottom: 1px solid;
+    color: #0000ff;
+}
+.heading {
+    float: left;
+    width: 190px;
+    height: 880px;
+    margin-right: 2rem;
+    text-align: center;
+    color: #ffffff;
+    background: #65a5fa;
+}
+.resume-content {
+    float: left;
+}
