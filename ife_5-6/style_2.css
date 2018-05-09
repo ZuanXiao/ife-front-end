@@ -3,6 +3,7 @@ html {
 }
 body {
     /* 居中显示 */
+    /* 弹性盒子 */
     display: flex;
     justify-content: center;
     line-height: 1.5;
@@ -21,7 +22,7 @@ b + p {
 .heading {
     float: left;
     width: 190px;
-    height: 790px;
+    /* height: 790px; */
     margin-right: 1.5rem;
     text-align: center;
     color: #ffffff;
