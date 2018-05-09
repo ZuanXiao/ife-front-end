@@ -2,6 +2,9 @@ html {
     font-family: "Microsoft YaHei", Helvetica, Arial, "Time New Roman", sans-serif;
 }
 body {
+    /* 居中显示 */
+    display: flex;
+    justify-content: center;
     line-height: 1.5;
 }
 h1 {
@@ -28,4 +31,10 @@ b + p {
     float: left;
     background-color: #eeeeee;
     padding: 5px;
+}
+/* 清除浮动,防止body高度塌陷 */
+body::after {
+    content: "";
+    display: block;
+    clear: both;
 }
