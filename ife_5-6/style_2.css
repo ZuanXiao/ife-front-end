@@ -12,15 +12,20 @@ a:link {
     border-bottom: 1px solid;
     color: #0000ff;
 }
+b + p {
+    margin-top: 0;
+}
 .heading {
     float: left;
     width: 190px;
-    height: 880px;
-    margin-right: 2rem;
+    height: 790px;
+    margin-right: 1.5rem;
     text-align: center;
     color: #ffffff;
     background: #65a5fa;
 }
 .resume-content {
     float: left;
+    background-color: #eeeeee;
+    padding: 5px;
 }

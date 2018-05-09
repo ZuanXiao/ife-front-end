@@ -9,3 +9,6 @@ a:link {
     border-bottom: 1px solid;
     color: #0000ff;
 }
+b + p {
+    margin-top: 0;
+}
