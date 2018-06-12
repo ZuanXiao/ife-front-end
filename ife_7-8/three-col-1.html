@@ -1,0 +1,127 @@
+<!-- 三栏布局，左、右侧固定宽度，中间宽度自适应变化 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三栏布局(固定-变化-固定)</title>
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        p {
+            margin: 0;
+        }
+
+        .mid {
+            width: 500px;
+            height: 100%;
+            background-color: #ffe6b8;
+        }
+
+        .left {
+            width: 250px;
+            height: 100%;
+            background-color: #a0b3d6;
+        }
+
+        .right {
+            width: 250px;
+            height: 100%;
+            background-color: #a0b3d6;
+        }
+
+        /* use Float: 100%和250px与减号之间一定要有空格,否则出错*/
+
+        /* 元素div设计顺序: left -> right -> mid */
+        /* .mid {
+            margin: 0 250px;
+            width: calc(100% - 500px);
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        } */
+
+        /* 元素div设计顺序: left -> mid -> right */
+        .mid {
+            float: left;
+            width: calc(100% - 500px);
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: left;
+        }
+
+        /* use Position */
+
+        /* .left, .right {
+            position: absolute;
+            top: 0;
+            width: 250px;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            right: 0;
+        }
+        .mid {
+            margin: 0 250px;
+            width: calc(100% - 500px);
+        } */
+
+        /* use Flexbox */
+
+        /* body {
+            display: flex;
+        }
+        .mid {
+            width: calc(100% - 500px);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <p class="left-width"></p>
+    </div>
+    <div class="mid">
+    <p class="mid-width"></p>
+    </div>
+    <div class="right">
+        <p class="right-width"></p>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        divWidthShow();
+    }
+    window.onresize = function () {
+        divWidthShow();
+    }
+    function divWidthShow() {
+        var left_width = document.getElementsByClassName("left")[0].offsetWidth;
+        var right_width = document.getElementsByClassName('right')[0].offsetWidth;
+        var mid_width = document.getElementsByClassName('mid')[0].offsetWidth;
+        var left_p = document.getElementsByClassName('left-width')[0];
+        var right_p = document.getElementsByClassName('right-width')[0];
+        var mid_p = document.getElementsByClassName('mid')[0];
+        left_p.innerText = "Left: " + left_width + "px";
+        right_p.innerText = "Right: " + right_width + "px";
+        mid_p.innerText = "Mid: " + mid_width + "px";
+    }
+</script>
+
+</html>

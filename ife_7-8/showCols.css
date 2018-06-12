@@ -1,0 +1,197 @@
+/* 基础样式 */
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.select {
+    padding: 20px;
+}
+.select-tip {
+    color: #ff0000;
+}
+.wrapper {
+    height: 800px;
+    padding: 5px 0;
+    border: 1px dashed #000000;
+    border-left: none;
+    border-right: none;
+}
+.left {
+    height: 800px;
+    background-color: #a0b3d6;
+}
+.right {
+    height: 800px;
+}
+.mid {
+    height: 800px;
+    background-color: #ffe6b8;
+}
+p {
+    margin: 0;
+}
+#tips {
+    display: none;
+    color: #0000ff;
+}
+
+/* 两栏:布局30%-70% */
+.wrapper-scaleWidth .left {
+    width: 30%;
+    background-color: #ffe6b8;
+}
+.wrapper-scaleWidth .right {
+    width: 70%;
+    background-color: #a0b3d6;
+}
+.wrapper-scaleWidth-float .left {
+    float: left;
+}
+.wrapper-scaleWidth-float .right {
+    float: left;
+}
+.wrapper-scaleWidth-position .left {
+    position: absolute;
+}
+.wrapper-scaleWidth-position .right {
+    margin-left: 30%;
+}
+.wrapper-scaleWidth-flexbox {
+    display: flex;
+}
+
+/* 两栏:固定-变化 */
+.wrapper-fixed-variety .left {
+    width: 250px;
+    background-color: #ffe6b8;
+}
+.wrapper-fixed-variety .right {
+    width: 500px;
+    background-color: #a0b3d6;
+}
+.wrapper-fixed-variety-float .left {
+    float: left;
+}
+.wrapper-fixed-variety-float .right {
+    float: left;
+    width: calc(100% - 250px);
+}
+.wrapper-fixed-variety-position .left {
+    position: absolute;
+}
+.wrapper-fixed-variety-position .right {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+.wrapper-fixed-variety-flexbox {
+    display: flex;
+}
+.wrapper-fixed-variety-flexbox .right {
+    width: calc(100% - 250px);
+}
+
+/* 两栏:变化-固定 */
+.wrapper-variety-fixed .left {
+    width: 500px;
+    background-color: #ffe6b8;
+}
+.wrapper-variety-fixed .right {
+    width: 250px;
+    background-color: #a0b3d6;
+}
+.wrapper-variety-fixed-float .left {
+    float: left;
+    width: calc(100% - 250px);
+}
+.wrapper-variety-fixed-float .right {
+    float: left;
+}
+.wrapper-variety-fixed-position .left {
+    position: absolute;
+    width: calc(100% - 250px);
+}
+.wrapper-variety-fixed-position .right {
+    margin-left: calc(100% - 250px);
+}
+.wrapper-variety-fixed-flexbox {
+    display: flex;
+}
+.wrapper-variety-fixed-flexbox .left {
+    width: calc(100% - 250px);
+}
+
+/* 三栏基本设置 */
+.wrapper-three-cols .left {
+    width: 250px;
+}
+.wrapper-three-cols .right {
+    background-color: #a0b3d6;
+}
+/* 三栏:固定-变化-固定 */
+.wrapper-threeCols-midVariety-float .left {
+    float: left;
+}
+.wrapper-threeCols-midVariety-float .mid {
+    float: left;
+    width: calc(100% - 500px);
+}
+.wrapper-threeCols-midVariety-float .right {
+    float: left;
+    width: 250px;
+}
+.wrapper-threeCols-midVariety-position .left, .wrapper-threeCols-midVariety-position .mid {
+    position: absolute;
+}
+.wrapper-threeCols-midVariety-position .left {
+    left: 0;
+}
+.wrapper-threeCols-midVariety-position .mid {
+    margin: 0 250px;
+    width: calc(100% - 500px);
+}
+.wrapper-threeCols-midVariety-position .right {
+    margin-left: calc(100% - 250px);
+}
+.wrapper-threeCols-midVariety-flexbox {
+    display: flex;
+}
+.wrapper-threeCols-midVariety-flexbox .mid {
+    width: calc(100% - 500px);
+}
+.wrapper-threeCols-midVariety-flexbox .right {
+    width: 250px;
+}
+
+/* 三栏:固定-固定-变化 */
+.wrapper-threeCols-rightVariety-float .left {
+    float: left;
+}
+.wrapper-threeCols-rightVariety-float .mid {
+    float: left;
+    width: 250px;
+}
+.wrapper-threeCols-rightVariety-float .right {
+    float: left;
+    width: calc(100% - 500px);
+}
+.wrapper-threeCols-rightVariety-position .left, .wrapper-threeCols-rightVariety-position .mid {
+    position: absolute;
+    width: 250px;
+}
+.wrapper-threeCols-rightVariety-position .mid {
+    left: 250px;
+}
+.wrapper-threeCols-rightVariety-position .right {
+    width: calc(100% - 500px);
+    margin-left: 500px;
+}
+.wrapper-threeCols-rightVariety-flexbox {
+    display: flex;
+}
+.wrapper-threeCols-rightVariety-flexbox .mid {
+    width: 250px;
+}
+.wrapper-threeCols-rightVariety-flexbox .right {
+    width: calc(100% - 500px);
+}
