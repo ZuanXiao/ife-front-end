@@ -1,0 +1,92 @@
+<!-- 两栏布局，左侧固定宽度，右侧宽度自适应变化 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>两栏布局(固定-变化)</title>
+    <!-- <link href="two-col-1-style.css" rel="stylesheet"/> -->
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        p {
+            margin: 0;
+        }
+
+        .left {
+            width: 250px;
+            height: 100%;
+            background-color: #ffe6b8;
+        }
+
+        .right {
+            width: 500px;
+            height: 100%;
+            background-color: #a0b3d6;
+        }
+
+        /* use Float: 100%和250px与减号之间一定要有空格,否则出错*/
+
+        /* .left {
+            float: left;
+        }
+
+        .right {
+            float: left;
+            width: calc(100% - 250px);
+        } */
+
+        /* use Position */
+
+        /* .left {
+            position: absolute;
+        }
+        .right {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+        } */
+        /* use Flexbox */
+
+        body {
+            display: flex;
+        }
+        .right {
+            width: calc(100% - 250px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <p class="left-width"></p>
+    </div>
+    <div class="right">
+        <p class="right-width"></p>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        divWidthShow();
+    }
+    window.onresize = function () {
+        divWidthShow();
+    }
+    function divWidthShow() {
+        var left_width = document.getElementsByClassName("left")[0].offsetWidth;
+        var right_width = document.getElementsByClassName('right')[0].offsetWidth;
+        var left_p = document.getElementsByClassName('left-width')[0];
+        var right_p = document.getElementsByClassName('right-width')[0];
+        left_p.innerText = "Left: " + left_width + "px";
+        right_p.innerText = "Right: " + right_width + "px";
+    }
+</script>
+
+</html>

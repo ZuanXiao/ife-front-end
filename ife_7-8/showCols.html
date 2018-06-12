@@ -1,0 +1,208 @@
+<!-- 使用float、position、flexbox实现两栏或三栏布局, 编码和布局配色参考网上资料 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多栏布局各种情况展示</title>
+    <link href="showCols.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="select">
+        <span class="select-tip">选择不同要求查看效果：</span>
+        <select id="type-select">
+            <option value="0">两栏,左侧30%,右侧70%</option>
+            <option value="1">两栏,左侧固定,右侧变化</option>
+            <option value="2">两栏,左侧变化,右侧固定</option>
+            <option value="3">三栏,固定-变化-固定</option>
+            <option value="4">三栏,固定-固定-变化</option>
+        </select>
+        <span id="tips">固定宽度为250px</span>
+    </div>
+    <div class="select">
+        <span class="select-tip">选择不同方案：</span>
+        <select id="sol-select">
+            <option value="0">Float</option>
+            <option value="1">Position</option>
+            <option value="2">Flexbox</option>
+        </select>
+    </div>
+    <div class="wrapper wrapper-scaleWidth wrapper-scaleWidth-float" id="wrapper">
+        <div class="left">
+            <p class="left-width"></p>
+        </div>
+        <div class="mid">
+            <p class="mid-width"></p>
+        </div>
+        <div class="right">
+            <p class="right-width"></p>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        divWidthShow();
+    }
+    window.onresize = function () {
+        divWidthShow();
+    }
+    function divWidthShow() {
+        var left_width = document.getElementsByClassName("left")[0].offsetWidth;
+        var right_width = document.getElementsByClassName('right')[0].offsetWidth;
+        var mid_width = document.getElementsByClassName('mid')[0].offsetWidth;
+        var left_p = document.getElementsByClassName('left-width')[0];
+        var right_p = document.getElementsByClassName('right-width')[0];
+        var mid_p = document.getElementsByClassName('mid')[0];
+        left_p.innerText = "Left: " + left_width + "px";
+        right_p.innerText = "Right: " + right_width + "px";
+        mid_p.innerText = "Mid: " + mid_width + "px";
+    }
+    var wrapper = document.querySelector('#wrapper');
+    var tips = document.querySelector('#tips');
+    var midCol = document.querySelectorAll('.mid')[0];
+    midCol.style.display = "none";
+    var value_type = 0;
+    // 选择发生变化: +value表示Number(value)
+    document.querySelector('#type-select').addEventListener('change', function (event) {
+        value_type = event.target.value;
+        var sol_value = document.querySelector('#sol-select').value;
+
+        switch (+value_type) {
+            case 0: {
+                midCol.style.display = "none";
+                if(+sol_value === 0) {
+                    wrapper.className = "wrapper wrapper-scaleWidth wrapper-scaleWidth-float";
+                }
+                if(+sol_value === 1) {
+                    wrapper.className = "wrapper wrapper-scaleWidth wrapper-scaleWidth-position";
+                }
+                if(+sol_value === 2) {
+                    wrapper.className = "wrapper wrapper-scaleWidth wrapper-scaleWidth-flexbox";
+                }
+                tips.style.display = "none";
+                break;
+            }
+            case 1: {
+                midCol.style.display = "none";
+                if (+sol_value === 0) {
+                    wrapper.className = "wrapper wrapper-fixed-variety wrapper-fixed-variety-float";
+                }
+                if (+sol_value === 1) {
+                    wrapper.className = "wrapper wrapper-fixed-variety wrapper-fixed-variety-position";
+                }
+                if (+sol_value === 2) {
+                    wrapper.className = "wrapper wrapper-fixed-variety wrapper-fixed-variety-flexbox";
+                }
+                tips.style.display = "inline";
+                break;
+            }
+            case 2: {
+                midCol.style.display = "none";
+                if (+sol_value === 0) {
+                    wrapper.className = "wrapper wrapper-variety-fixed wrapper-variety-fixed-float";
+                }
+                if (+sol_value === 1) {
+                    wrapper.className = "wrapper wrapper-variety-fixed wrapper-variety-fixed-position";
+                }
+                if (+sol_value === 2) {
+                    wrapper.className = "wrapper wrapper-variety-fixed wrapper-variety-fixed-flexbox";
+                }
+                tips.style.display = "inline";
+                break;
+            }
+            case 3: {
+                midCol.style.display = "block";
+                if (+sol_value === 0) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-midVariety-float";
+                }
+                if (+sol_value === 1) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-midVariety-position";
+                }
+                if (+sol_value === 2) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-midVariety-flexbox";
+                }
+                tips.style.display = "inline";
+                break;
+            }
+            case 4: {
+                midCol.style.display = "block";
+                if (+sol_value === 0) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-rightVariety-float";
+                }
+                if (+sol_value === 1) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-rightVariety-position";
+                }
+                if (+sol_value === 2) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-rightVariety-flexbox";
+                }
+                tips.style.display = "inline";
+                break;
+            }
+        }
+        divWidthShow();
+    });
+
+    document.querySelector('#sol-select').addEventListener('change', function (event) {
+        var value_sol = event.target.value;
+        switch (+value_sol) {
+            case 0: {
+                if (+value_type === 0) {
+                    wrapper.className = "wrapper wrapper-scaleWidth wrapper-scaleWidth-float";
+                }
+                if (+value_type === 1) {
+                    wrapper.className = "wrapper wrapper-fixed-variety wrapper-fixed-variety-float";
+                }
+                if (+value_type === 2) {
+                    wrapper.className = "wrapper wrapper-variety-fixed wrapper-variety-fixed-float";
+                }
+                if (+value_type === 3) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-midVariety-float";
+                }
+                if (+value_type === 4) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-rightVariety-float";
+                }
+                break;
+            }
+            case 1: {
+                if (+value_type === 0) {
+                    wrapper.className = "wrapper wrapper-scaleWidth wrapper-scaleWidth-position";
+                }
+                if (+value_type === 1) {
+                    wrapper.className = "wrapper wrapper-fixed-variety wrapper-fixed-variety-position";
+                }
+                if (+value_type === 2) {
+                    wrapper.className = "wrapper wrapper-variety-fixed wrapper-variety-fixed-position";
+                }
+                if (+value_type === 3) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-midVariety-position";
+                }
+                if (+value_type === 4) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-rightVariety-position";
+                }
+                break;
+            }
+            case 2: {
+                if (+value_type === 0) {
+                    wrapper.className = "wrapper wrapper-scaleWidth wrapper-scaleWidth-flexbox";
+                }
+                if (+value_type === 1) {
+                    wrapper.className = "wrapper wrapper-fixed-variety wrapper-fixed-variety-flexbox";
+                }
+                if (+value_type === 2) {
+                    wrapper.className = "wrapper wrapper-variety-fixed wrapper-variety-fixed-flexbox";
+                }
+                if (+value_type === 3) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-midVariety-flexbox";
+                }
+                if (+value_type === 4) {
+                    wrapper.className = "wrapper wrapper-three-cols wrapper-threeCols-rightVariety-flexbox";
+                }
+                break;
+            }
+        }
+        divWidthShow();
+    })
+</script>
+
+</html>

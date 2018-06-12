@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>day7-8Design</title>
+        <link href="day7-8.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <nav class="head-part">
+                <div class="head-content">
+                    <p class="logo">Logo</p>
+                    <div class="head-href">
+                        <a href="#">Github</a>
+                        <a href="#">Register</a>
+                        <a href="#">Login</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="banner">
+                <div class="banner-tags">
+                    <ul>
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="active">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-nav">
+                <div class="nav-tags">
+                    <ul>
+                        <li>
+                            <a href="#" class="active">HOME</a>
+                        </li>
+                        <li>
+                            <a href="#">PROFILE</a>
+                        </li>
+                        <li>
+                            <a href="#">ABOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="content-area">
+                    <div class="area-top">
+                        <p>This is Content 1</p>
+                        <p>MaybeContent 2</p>
+                        <p>Content 3</p>
+                    </div>
+                    <div class="area-mid">
+                        <p>Content 4</p>
+                        <p>Content 5</p>
+                        <p>Content 6</p>
+                        <p>Content 7</p>
+                    </div>
+                    <div class="area-bot">
+                        <p>Content 8</p>
+                        <p>Content 9</p>
+                        <p>Content 10</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="footer">
+            <p>© 2018 ife.baidu.com</p>
+        </div>
+
+        <script>
+            var img_tabs = document.querySelectorAll(".banner-tags li a");
+            var content_tabs = document.querySelectorAll(".nav-tags li a");
+
+            for(var i in img_tabs) {
+                var tab = img_tabs[i];
+                setTabHandler(tab, img_tabs, i);
+            }
+            for(var i in content_tabs) {
+                var tab = content_tabs[i];
+                setTabHandler(tab, content_tabs, i);
+            }
+
+            function setTabHandler(tab, tabs, tabPos) {
+                tab.onclick = function () {
+                    // 此处不能使用for...in循环遍历数组, 存在问题
+                    // for(var i = 0, len = tabs.length;i < len; ++i) {
+                    //     if(tabs[i].getAttribute("class")) {
+                    //         tabs[i].removeAttribute("class");
+                    //     }
+                    // }
+                    for(var aTab of tabs) {
+                        if(aTab.getAttribute("class")) {
+                            aTab.removeAttribute("class");
+                        }
+                    }
+
+                    tab.setAttribute("class", "active");
+                };
+            }
+        </script>
+    </body>
+</html>

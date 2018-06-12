@@ -1,0 +1,179 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.head-part {
+    margin-top: 0;
+    width: 100%;
+    background-color: #333333;
+}
+
+.head-content {
+    margin: 0 auto;
+    width: 960px;
+}
+.logo {
+    float: left;
+    font-size: 1.5rem;
+    color: #e9eae9;
+}
+
+.head-href {
+    float: right;
+    top: 0;    
+}
+
+a {
+    font-size: 0.5rem;
+    color: #e9eae9;
+}
+
+.head-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.banner {
+    width: 100%;
+    height: 210px;
+    background-color: #66bb33;
+}
+
+/* .banner-tags::before {
+    content: "";
+    display: table;
+} */
+
+.banner-tags {
+    position: relative;
+    margin: 0 auto;
+    width: 960px;
+    height: 100%;
+}
+
+.banner-tags ul {
+    position: absolute;
+    right: 0;
+    bottom: 7px;
+    margin: 0;
+    padding: 0;
+}
+
+.banner-tags ul::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.banner-tags li {
+    float: left;
+    padding-bottom: 7px;
+    list-style-type: none;
+}
+
+.banner-tags li a {
+    display: inline;
+    text-decoration: none;
+    border: .5px solid #38671c;
+    padding: 7px 8px;
+    margin-right: 3px;
+    background-color: #b2dd99;
+    color: #719c58;
+}
+
+.banner-tags li a.active {
+    padding-top: 15px;
+    background-color: #e0f1d6;
+    color: #47583d;
+}
+
+.main-nav {
+    height: 55px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.nav-tags {
+    position: relative;
+    margin: 0 auto;
+    width: 960px;
+    height: 100%;
+}
+
+.nav-tags ul {
+    position: absolute;
+    bottom: -1px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-tags li {
+    float: left;
+    padding-bottom: 10px;
+    list-style-type: none;
+}
+
+.nav-tags li a {
+    display: inline;
+    text-decoration: none;
+    border: 1px solid #e5e5e5;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 10px 20px;
+    background-color: #eeeeee;
+    color: #000000;
+}
+
+.nav-tags li a.active {
+    background-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+.main-content {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-bottom: 1px solid #939393;
+}
+
+.content-area {
+    position: absolute;
+    margin: 0 calc((100% - 960px)/2);
+    /* top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto; */
+    width: 960px;
+    height: 100%;
+}
+
+.area-top, .area-mid, .area-bot {
+    display: flex;
+}
+
+.content-area p {
+    flex: 1 auto;
+    margin: 10px 10px 0 0;
+    padding: 65px;
+    border: 1px solid #dedede;
+    text-align: center;
+}
+.footer {
+    height: 85px;
+    background-color: #666666;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #e9eae9;
+}
+
+/* 解决没有上边框的父元素中子元素margin-top溢出问题 */
+.footer::before {
+    content: "";
+    display: table;
+}
